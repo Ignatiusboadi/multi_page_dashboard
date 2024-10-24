@@ -62,6 +62,7 @@ layout = html.Div(style={'height': '100vh', 'padding-bottom': '100px',
           Output('full_name-store', 'data'),
           Output('email-store', 'data'),
           Output('login-output', 'children'),
+          Output('url', 'pathname', allow_duplicate=True),
           Input('login-btn', 'n_clicks'),
           State('username-input', 'value'),
           State('password-input', 'value'),
@@ -74,6 +75,6 @@ def log_in(n_clicks, username, password):
         access_token = random.randint(0, 100000)
         full_name = credentials.loc[username, 'Full Name']
         email = credentials.loc[username, 'Email']
-        return access_token, full_name, email, None
+        return access_token, full_name, email, None, 'home'
     else:
-        return None, None, None, 'Wrong Username or Password.'
+        return None, None, None, 'Wrong Username or Password.', '/'
