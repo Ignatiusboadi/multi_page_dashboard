@@ -2,6 +2,7 @@ from app import app
 from dash import dcc, html, ctx, callback
 from dash.dependencies import Input, Output, State
 import dash_bootstrap_components as dbc
+import login
 
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
@@ -19,7 +20,7 @@ app.layout = html.Div([
               Input('token', 'data'))
 def display_page(pathname, token):
     if pathname == '/' or not token:
-        return
+        return login.layout
     else:
         return '404: Page not found'
 
