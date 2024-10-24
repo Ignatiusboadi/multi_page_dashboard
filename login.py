@@ -5,7 +5,6 @@ import dash_bootstrap_components as dbc
 import datetime
 import pandas as pd
 
-
 credentials = pd.read_excel('credentials.xlsx')
 credentials.set_index('Username', inplace=True)
 
@@ -63,10 +62,10 @@ layout = html.Div(style={'height': '100vh', 'padding-bottom': '100px',
           Output('email-store', 'data'),
           Output('login-output', 'children'),
           Input('login-btn', 'n_clicks'),
-    State('username-input', 'value'),
-    State('password-input', 'value'),
-    config_prevent_initial_callbacks=True,
-)
+          State('username-input', 'value'),
+          State('password-input', 'value'),
+          config_prevent_initial_callbacks=True,
+          )
 def log_in(n_clicks, username, password):
     if not n_clicks or username is None or password is None:
         raise PreventUpdate
@@ -77,4 +76,3 @@ def log_in(n_clicks, username, password):
         return access_token, full_name, email, None
     else:
         return None, None, None, 'Wrong Username or Password.'
-
