@@ -75,6 +75,6 @@ def log_in(n_clicks, username, password):
         access_token = random.randint(0, 100000)
         full_name = credentials.loc[username, 'Full Name']
         email = credentials.loc[username, 'Email']
-        return access_token, full_name, email, None, 'home'
+        return access_token, full_name, email, None, '/home'
     else:
         return None, None, None, 'Wrong Username or Password.', '/'
