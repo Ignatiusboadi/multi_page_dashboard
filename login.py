@@ -9,7 +9,7 @@ credentials = pd.read_excel('credentials.xlsx')
 credentials.set_index('Username', inplace=True)
 
 layout = html.Div(style={'height': '100vh', 'padding-bottom': '100px',
-                         'padding-top': '50px', 'background-image': 'url("/assets/grad.webp"'},
+                         'padding-top': '50px'},
                   children=[
                       dbc.Row(children=[
                           dbc.Col(children=[
@@ -24,7 +24,8 @@ layout = html.Div(style={'height': '100vh', 'padding-bottom': '100px',
                           dbc.Row(children=[
                               dbc.Col(children=[
                                   dbc.Card([
-                                      dbc.CardBody(style={'background-color': 'GhostWhite'}, children=[
+                                      dbc.CardBody(style={'background-image': 'url("/assets/grad.webp"',
+                                                          'color': 'white', 'border-radius': '15px'}, children=[
                                           dbc.Label("Username:", html_for="username-input"),
                                           dcc.Input(id='username-input', type='text', placeholder='Enter Username',
                                                     className="form-control mb-3"),
@@ -37,7 +38,7 @@ layout = html.Div(style={'height': '100vh', 'padding-bottom': '100px',
                                                          className='text-center', outline=True,
                                                          size='md', style={'padding-left': '45px',
                                                                            'padding-right': '45px'}), ],
-                                              width={'offset': 3},
+                                              width={'offset': 4},
                                               style={'padding-left': '25px', 'padding-right': '25px'})],
                                               justify="center"),
                                           html.Br(),
@@ -48,10 +49,10 @@ layout = html.Div(style={'height': '100vh', 'padding-bottom': '100px',
                                               justify="center"),
                                           dbc.Row([
                                               dbc.Col(
-                                                  dbc.Button("Reset Password", id='reset-btn', color="success",
+                                                  dbc.Button("Reset Password", id='reset-btn', color="light",
                                                              outline=True, className='mt-1', size='md',
-                                                             style={'padding-left': '60px', 'padding-right': '60px'}),
-                                                  width={'offset': 3},
+                                                             style={'padding-left': '90px', 'padding-right': '60px'}),
+                                                  width={'offset': 2},
                                                   style={'padding-left': '35px', 'padding-right': '35px'})],
                                               justify="center"), ])])], width=4)], justify="center"),
                       ], fluid=True)])
