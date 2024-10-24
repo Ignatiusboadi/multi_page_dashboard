@@ -16,13 +16,16 @@ app.layout = html.Div([
 
 
 @app.callback(Output('page-content', 'children'),
+              Output('url', 'pathname'),
               Input('url', 'pathname'),
-              Input('token', 'data'))
-def display_page(pathname, token):
+              Input('token', 'data'),
+              Input('full_name-store', 'data'),
+              Input('email-store', 'data'))
+def display_page(pathname, token, full_name, email):
     if pathname == '/' or not token:
-        return login.layout
+        return login.layout, '/login'
     else:
-        return '404: Page not found'
+        return '404: Page not found', '/'
 
 
 if __name__ == '__main__':
