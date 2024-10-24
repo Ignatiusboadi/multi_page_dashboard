@@ -22,7 +22,7 @@ app.layout = html.Div([
               Input('full_name-store', 'data'),
               Input('email-store', 'data'))
 def display_page(pathname, token, full_name, email):
-    if pathname == '/' or not token:
+    if pathname == '/' or pathname == '/login' or not token:
         return login.layout, '/login'
     elif token:
         return home_page.layout, pathname
