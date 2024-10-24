@@ -7,6 +7,8 @@ app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
     html.Div(id='page-content'),
     dcc.Store(id='token', data=None),
+    dcc.Store(id='full_name-store', data=None),
+    dcc.Store(id='email-store', data=None),
     dbc.Row(children=[
         dbc.Col(html.H5([html.I(className='fa fa-copyright'), ' Group 1 2024'], style={'padding-top': '5px'}),
                 width={"size": 2, 'offset': 10})])])
