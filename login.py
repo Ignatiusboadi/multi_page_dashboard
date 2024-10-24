@@ -6,7 +6,7 @@ import requests
 
 
 layout = html.Div(style={'height': '100vh', 'padding-bottom': '100px',
-                         'padding-top': '50px', 'background-image': 'url("/assets/brain_imag_bg.webp"'},
+                         'padding-top': '50px', 'background-image': 'url("/assets/grad.webp"'},
                   children=[
                       dbc.Row(children=[
                           dbc.Col(children=[
