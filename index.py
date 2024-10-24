@@ -1,8 +1,11 @@
-from app import app
-from dash import dcc, html, ctx, callback
-from dash.dependencies import Input, Output, State
 import dash_bootstrap_components as dbc
-import login, home_page
+from dash import dcc, html, ctx
+from dash.dependencies import Input, Output
+from dash.exceptions import PreventUpdate
+
+import home_page
+import login
+from app import app
 
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
@@ -22,10 +25,12 @@ app.layout = html.Div([
               Input('full_name-store', 'data'),
               Input('email-store', 'data'))
 def display_page(pathname, token, full_name, email):
+    if token == 'login-btn':
+        raise PreventUpdate
+    if token:
+        return home_page.layout, pathname
     if pathname == '/' or pathname == '/login' or not token:
         return login.layout, '/login'
-    elif token:
-        return home_page.layout, pathname
     else:
         return '404: Page not found', '/'
 
