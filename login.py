@@ -18,14 +18,17 @@ layout = html.Div(style={'height': '100vh', 'padding-bottom': '100px',
                                              'font-size': '200%'}), ], )], justify='center'),
                       dbc.Container(style={'padding-top': '100px'}, children=[
                           dbc.Row(children=[
-                              dbc.Col(html.H2("Login", className="text-center mb-4",
-                                              style={'textAlign': 'center', 'font-weight': 'bold', 'color': 'red'}),
-                                      width=12)]),
-                          dbc.Row(children=[
                               dbc.Col(children=[
                                   dbc.Card([
                                       dbc.CardBody(style={'background-image': 'url("/assets/grad.webp"',
-                                                          'color': 'white', 'border-radius': '15px'}, children=[
+                                                          'color': 'white', 'border-radius': '15px',
+                                                          'padding-top': '20px', 'padding-bottom': '20px'}, children=[
+                                          dbc.Row(children=[
+                                              dbc.Col(html.H2("Sign in", className="text-center mb-4",
+                                                              style={'textAlign': 'center', 'font-weight': 'bold',
+                                                                     'color': 'white'}),
+                                                      width=12)]),
+                                          html.Hr(),
                                           dbc.Label("Username:", html_for="username-input"),
                                           dcc.Input(id='username-input', type='text', placeholder='Enter Username',
                                                     className="form-control mb-3"),
@@ -33,27 +36,26 @@ layout = html.Div(style={'height': '100vh', 'padding-bottom': '100px',
                                           dcc.Input(id='password-input', type='password', placeholder='Enter Password',
                                                     className="form-control mb-3"),
                                           html.Br(),
-                                          dbc.Row(children=[dbc.Col(children=[
-                                              dbc.Button("Login", id='login-btn', color="primary",
-                                                         className='text-center', outline=True,
-                                                         size='md', style={'padding-left': '45px',
-                                                                           'padding-right': '45px'}), ],
-                                              width={'offset': 4},
-                                              style={'padding-left': '25px', 'padding-right': '25px'})],
-                                              justify="center"),
+                                          dbc.Row(children=[
+                                              dbc.Col(children=[
+                                                  dbc.Button("Login", id='login-btn',
+                                                             color="primary", className='text-center', outline=True,
+                                                             size='md', style={'padding-left': '45px',
+                                                                               'padding-right': '45px'}), ],
+                                                  width=4)], justify="evenly"),
                                           html.Br(),
-                                          dbc.Row(children=[dbc.Col(children=[
-                                              html.H5(id='login-output'), ],
-                                              width={'offset': 3},
-                                              style={'padding-left': '25px', 'padding-right': '25px', 'color': 'red'})],
-                                              justify="center"),
-                                          dbc.Row([
+                                          dbc.Row(children=[dbc.Col(children=[html.H5(id='login-output'), ],
+                                                                    width=4, style={'color': 'red'}
+                                                                    )],
+                                                  justify="center"),
+                                          html.Hr(),
+                                          dbc.Row(children=[
                                               dbc.Col(
                                                   dbc.Button("Reset Password", id='reset-btn', color="light",
                                                              outline=True, className='mt-1', size='md',
                                                              style={'padding-left': '90px', 'padding-right': '60px'}),
-                                                  width={'offset': 2},
-                                                  style={'padding-left': '35px', 'padding-right': '35px'})],
+                                                  width=7
+                                              )],
                                               justify="center"), ])])], width=4)], justify="center"),
                       ], fluid=True)])
 
