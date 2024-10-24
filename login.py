@@ -71,7 +71,7 @@ def log_in(n_clicks, username, password):
     if not n_clicks or username is None or password is None:
         raise PreventUpdate
     if username in credentials.index and password == credentials.loc[username, 'Password']:
-        access_token = random.randint(0, 100000000000)
+        access_token = random.randint(0, 100000)
         full_name = credentials.loc[username, 'Full Name']
         email = credentials.loc[username, 'Email']
         return access_token, full_name, email, None
