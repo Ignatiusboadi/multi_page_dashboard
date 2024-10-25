@@ -11,6 +11,7 @@ app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
     html.Div(id='page-content'),
     dcc.Store(id='token', data=None),
+    dcc.Store(id='username-store', data=None),
     dcc.Store(id='full_name-store', data=None),
     dcc.Store(id='email-store', data=None),
     dbc.Row(children=[
