@@ -12,10 +12,10 @@ layout = html.Div(children=[
             dbc.Row(dbc.Col(children=[
                 dbc.Button(id='toggle-offcanvas', children=[html.I(className='fa fa-bar-chart'), '   Dashboards'],
                            outline=True, color='warning', size='sm', n_clicks=0), ], style={'padding-top': '5px'}))
-        ]),
-        dbc.Col(html.H2(id='banner', style={})),
+        ], width=2),
+        dbc.Col(html.H2(id='banner', style={}), width=8),
         dbc.Col(dbc.Button(id='logout-btn', children=[html.I(className='fa fa-power-off'), '  Log out'], n_clicks=0,
-                           outline=True, color='danger'), style={'padding-top': '3px'}, width={'offset': 10})
+                           outline=True, color='danger'), style={'padding-top': '3px'}, width=2)
     ])),
     dbc.Offcanvas(id='offcanvas', is_open=False, style={'width': '350px'}, title='Dashboards'),
     html.Div(id='display-components')
